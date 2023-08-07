@@ -1,4 +1,10 @@
 package security.model;
 
-public class Rol {
+
+
+public enum Rol {
+
+    USER,
+    ADMIN;
+
 }
