@@ -2,7 +2,7 @@ package security.model;
 
 
 
-public enum Rol {
+public enum Role {
 
     USER,
     ADMIN;
