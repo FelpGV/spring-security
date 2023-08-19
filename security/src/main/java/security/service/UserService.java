@@ -9,4 +9,8 @@ public interface UserService {
 
     User save(User user, Set<UserRole> userRoles) throws Exception;
 
+    User findByUsername(String username);
+
+    void delete(User user);
+
 }

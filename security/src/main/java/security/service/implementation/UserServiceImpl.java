@@ -12,9 +12,14 @@ import java.util.Set;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
-    private RoleRepository roleRepository;
 
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+    }
 
     @Override
     public User save(User user, Set<UserRole> userRoles) throws Exception {
@@ -31,5 +36,15 @@ public class UserServiceImpl implements UserService {
             localUser = userRepository.save(user);
         }
         return localUser;
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByEmail(username);
+    }
+
+    @Override
+    public void delete(User user) {
+        userRepository.delete(user);
     }
 }
